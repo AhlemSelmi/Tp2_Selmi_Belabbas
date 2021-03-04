@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements EInterface{
 
 		private int matricule;
 	    private String nom;

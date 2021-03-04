@@ -1,5 +1,6 @@
 
-public enum TypePackage {
+public enum TypePackage  {
+	
 	Standard,
 	Premium
 }
