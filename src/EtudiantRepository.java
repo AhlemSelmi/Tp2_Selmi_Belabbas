@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,22 +8,24 @@ import java.sql.Statement;
 public class EtudiantRepository implements ERInterface {
 	
 	
-	public void add(EInterface E) throws SQLException
+	 public String add(EInterface E) throws SQLException
 	{
 
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
-		
+
 		Statement stmt = connect.createStatement();
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
-		
+		String msg="";
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
-			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+			msg="log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule();}
+			else if (rs == 0){
+			msg="log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule();
 			}
 		connect.close();
+		
+	return msg; 
 	 }
 
 
