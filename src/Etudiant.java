@@ -9,8 +9,8 @@ public class Etudiant implements EInterface{
 	    private int nbLivreMensuel_Autorise;
 	    private int nbLivreEmprunte;
 	    private int id_universite;
-	    
 	   
+	    
 		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
 			
 			this.matricule = matricule;
@@ -53,6 +53,11 @@ public class Etudiant implements EInterface{
 
 
 		public String getEmail() {
+			 if(email == null || email.length() == 0)
+			    {
+			    	return "email faux";
+			    }
+			 else
 			return email;
 		}
 

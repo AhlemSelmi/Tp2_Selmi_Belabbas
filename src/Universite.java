@@ -29,9 +29,19 @@ public class Universite implements UInterface {
 	public void setPack(TypePackage pack) {
 		this.pack = pack;
 	}
-	 
+	//initialisation de NbLivreMensuel
+    public Etudiant NbLivreMensuel(Etudiant E) {
+	 if (getPack() == TypePackage.Standard)
+    {
+         E.setNbLivreMensuel_Autorise(10);
+    }
+    else if (getPack() == TypePackage.Premium)
+    {
+     	 E.setNbLivreMensuel_Autorise(10*2);
+    }
+	 return E; 
  
 
- 
+    }
  
 }
