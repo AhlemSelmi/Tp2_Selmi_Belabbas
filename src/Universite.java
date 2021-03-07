@@ -4,6 +4,7 @@ public class Universite implements UInterface {
  private int i_univ; //identifiant unique de l'université
  private String nom;
  private TypePackage pack;
+ public TypePackage p;
  
 	public Universite(int i_univ, String nom, TypePackage pack) {
 	super();
@@ -43,5 +44,10 @@ public class Universite implements UInterface {
  
 
     }
+	@Override
+	public EInterface NbLivreMensuel(EInterface stud) {
+		// TODO Auto-generated method stub
+		return null;
+	}
  
 }

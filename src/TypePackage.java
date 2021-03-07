@@ -2,5 +2,6 @@
 public enum TypePackage  {
 	
 	Standard,
-	Premium
+	Premium,
+	illimite,
 }

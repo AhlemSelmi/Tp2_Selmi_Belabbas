@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Etudiant implements EInterface{
 
@@ -11,6 +13,7 @@ public class Etudiant implements EInterface{
 	    private int id_universite;
 	   
 	    
+	    
 		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
 			
 			this.matricule = matricule;
@@ -20,8 +23,17 @@ public class Etudiant implements EInterface{
 			this.pwd = pwd;
 			this.id_universite = id_universite;
 		}
-
-
+		public void Bonus(UniversiteRepository u) throws SQLException, IOException{
+			 UInterface I1=u.GetById(id_universite);
+			if(I1.getPack()==TypePackage.Standard)
+					{
+				setNbLivreMensuel_Autorise(getNbLivreMensuel_Autorise()+5);
+					}
+			else if(I1.getPack()==TypePackage.Premium)
+			{
+		setNbLivreMensuel_Autorise(getNbLivreMensuel_Autorise()+10);
+			}
+		}
 		public int getMatricule() {
 			return matricule;
 		}
@@ -105,7 +117,8 @@ public class Etudiant implements EInterface{
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
-
 		
+		
+	 
 		
 	    }
